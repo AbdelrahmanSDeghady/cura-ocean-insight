@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Activity, Brain, Shield } from "lucide-react";
 import heroWaves from "@/assets/hero-waves.png";
+import icuraLogo from "@/assets/icura-logo.png";
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -35,7 +36,16 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-6 text-center">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
+          {/* Huge Logo */}
+          <div className="flex justify-center mb-12">
+            <img 
+              src={icuraLogo} 
+              alt="Icura" 
+              className="w-full max-w-md md:max-w-lg lg:max-w-2xl h-auto opacity-95 filter drop-shadow-2xl"
+            />
+          </div>
+
           {/* Animated Medical Icons */}
           <div className="flex justify-center space-x-8 mb-8 opacity-80">
             <div className="animate-bounce delay-0">
