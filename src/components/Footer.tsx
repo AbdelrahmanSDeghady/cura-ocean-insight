@@ -42,7 +42,7 @@ const Footer = () => {
             <h3 className="font-semibold mb-4">Connect</h3>
             <div className="flex justify-center md:justify-end space-x-4 mb-4">
               <a
-                href="mailto:info@icura.com"
+                href="mailto:ai@icura.net"
                 className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors group"
               >
                 <Mail className="h-5 w-5 text-primary-foreground group-hover:text-accent-light transition-colors" />
@@ -55,7 +55,7 @@ const Footer = () => {
               </a>
             </div>
             <p className="text-primary-foreground/60 text-xs">
-              info@icura.com
+              ai@icura.net
             </p>
           </div>
         </div>

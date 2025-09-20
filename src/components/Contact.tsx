@@ -150,11 +150,11 @@ const Contact = () => {
                 </h3>
                 <div className="space-y-4">
                   <a
-                    href="mailto:info@icura.com"
+                    href="mailto:ai@icura.net"
                     className="flex items-center group hover:text-accent transition-colors"
                   >
                     <Mail className="h-5 w-5 mr-3 text-accent" />
-                    <span>info@icura.com</span>
+                    <span>ai@icura.net</span>
                   </a>
                   <a
                     href="#"

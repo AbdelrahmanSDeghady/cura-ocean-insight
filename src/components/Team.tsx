@@ -10,15 +10,15 @@ const Team = () => {
       title: "Research & Development Manager",
       description: "Research & Development Manager with expertise in clinical trials operations and health informatics. Certified in Health Informatics (Johns Hopkins) and Generative AI Strategic Leadership (Vanderbilt). Skilled in strategic planning, clinical research coordination, and data-driven healthcare innovation.",
       image: abdelrahmanPhoto,
-      linkedin: "#",
-      email: "abdelrahman@icura.com",
+      linkedin: "https://www.linkedin.com/in/abdelrahman-deghady-27112334a",
+      email: "bbnhd3333@gmail.com",
     },
     {
       name: "Mohamed Gad",
       title: "AI Engineer",
       description: "AI engineer specializing in medical data pipelines and machine learning, ensuring reliable AI-driven suggestions for clinical decision support systems.",
       image: mohamedPhoto,
-      linkedin: "#",
+      linkedin: "https://www.linkedin.com/in/mohamed-gad-970a74280",
       email: "mohamed@icura.com",
     },
   ];
