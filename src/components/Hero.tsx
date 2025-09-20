@@ -36,13 +36,13 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 lg:px-6 text-center">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-6xl mx-auto flex flex-col items-center justify-center min-h-screen py-20">
           {/* Huge Logo */}
-          <div className="flex justify-center mb-12">
+          <div className="flex justify-center mb-8">
             <img 
               src={icuraLogo} 
               alt="Icura" 
-              className="w-full max-w-md md:max-w-lg lg:max-w-2xl h-auto opacity-95 filter drop-shadow-2xl"
+              className="w-full max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto opacity-95 filter drop-shadow-2xl"
             />
           </div>
 
@@ -60,19 +60,19 @@ const Hero = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
             Smarter Clinical Decisions,{" "}
             <span className="text-accent-light">Faster</span>
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
             Icura analyzes patient data, symptoms, and labs to provide
             evidence-based suggestions that enhance clinical decision-making
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
             <Button
               variant="hero"
               size="xl"
