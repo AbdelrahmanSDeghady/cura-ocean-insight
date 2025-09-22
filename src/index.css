@@ -7,14 +7,14 @@
 @layer base {
   :root {
     /* Ocean-inspired color palette */
-    --background: 0 0% 100%;
-    --foreground: 185 100% 6%;
+    --background: 279 14% 92%;
+    --foreground: 191 100% 27%;
     
-    /* Deep Teal Primary */
-    --primary: 185 85% 15%;
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 185 75% 25%;
-    --primary-dark: 185 95% 10%;
+    /* Ocean Primary (#006989) */
+    --primary: 191 100% 27%;
+    --primary-foreground: 279 14% 92%;
+    --primary-light: 191 100% 37%;
+    --primary-dark: 191 100% 17%;
     
     /* Turquoise Accent */
     --accent: 180 85% 45%;
@@ -29,10 +29,10 @@
     --muted-foreground: 185 25% 45%;
     
     /* Cards and surfaces */
-    --card: 0 0% 100%;
-    --card-foreground: 185 100% 6%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 185 100% 6%;
+    --card: 279 14% 92%;
+    --card-foreground: 191 100% 27%;
+    --popover: 279 14% 92%;
+    --popover-foreground: 191 100% 27%;
     
     /* Medical-grade elements */
     --medical-success: 160 75% 35%;
@@ -47,7 +47,7 @@
     /* Ocean gradients */
     --gradient-ocean: linear-gradient(135deg, hsl(185 85% 15%) 0%, hsl(180 85% 45%) 100%);
     --gradient-wave: linear-gradient(180deg, hsl(180 85% 45% / 0.1) 0%, hsl(185 85% 15% / 0.05) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(185 85% 15%) 0%, hsl(180 75% 35%) 50%, hsl(180 85% 45%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(191 100% 27%) 0%, hsl(180 75% 35%) 50%, hsl(180 85% 45%) 100%);
     
     /* Shadows with ocean tint */
     --shadow-soft: 0 4px 6px -1px hsl(185 25% 45% / 0.1), 0 2px 4px -1px hsl(185 25% 45% / 0.06);
