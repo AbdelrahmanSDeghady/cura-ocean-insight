@@ -42,7 +42,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <img src={icuraLogo} alt="Icura" className="h-16 w-auto" />
+            <img src={icuraLogo} alt="Icura" className="h-20 w-auto" />
           </div>
 
           {/* Desktop Navigation */}

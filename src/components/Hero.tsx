@@ -38,7 +38,7 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 lg:px-6 text-center">
         <div className="max-w-6xl mx-auto flex flex-col items-center justify-center min-h-screen py-20">
           {/* Huge Logo */}
-          <div className="flex justify-center mb-4">
+          <div className="flex justify-center mb-2">
             <img 
               src={icuraLogo} 
               alt="Icura" 
