@@ -2,37 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Icura Design System - Modern Violet & Coral Medical Tech Palette */
+/* Icura Design System - Healthcare AI Turquoise & Ocean Blue Palette */
 
 @layer base {
   :root {
-    /* Modern tech-medical color palette */
-    --background: 295 25% 96%;
-    --foreground: 260 85% 15%;
+    /* Healthcare AI color palette */
+    --background: 194 43% 98%;
+    --foreground: 207 62% 15%;
     
-    /* Deep Violet Primary */
-    --primary: 260 85% 35%;
-    --primary-foreground: 295 25% 96%;
-    --primary-light: 260 75% 55%;
-    --primary-dark: 260 95% 25%;
+    /* Turquoise-Blue Primary */
+    --primary: 194 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 194 100% 81%;
+    --primary-dark: 210 100% 50%;
     
-    /* Vibrant Coral Accent */
-    --accent: 15 85% 60%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 15 75% 70%;
-    --accent-muted: 15 35% 90%;
+    /* Ocean Teal Secondary */
+    --secondary: 191 100% 28%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 194 100% 81%;
+    --accent-foreground: 207 62% 15%;
+    --accent-light: 194 100% 95%;
+    --accent-muted: 194 100% 95%;
     
-    /* Soft Lavender Tones */
-    --secondary: 280 25% 94%;
-    --secondary-foreground: 260 75% 25%;
-    --muted: 285 15% 97%;
-    --muted-foreground: 260 25% 55%;
+    /* Neutral Healthcare Tones */
+    --muted: 194 100% 95%;
+    --muted-foreground: 207 48% 22%;
     
     /* Cards and surfaces */
-    --card: 295 25% 96%;
-    --card-foreground: 260 85% 15%;
-    --popover: 295 25% 96%;
-    --popover-foreground: 260 85% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 207 62% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 207 62% 15%;
     
     /* Medical-grade elements */
     --medical-success: 140 75% 45%;
@@ -40,19 +40,19 @@
     --medical-error: 0 75% 60%;
     
     /* Interactive elements */
-    --border: 280 20% 88%;
-    --input: 285 20% 94%;
-    --ring: 260 75% 55%;
+    --border: 194 30% 88%;
+    --input: 194 100% 95%;
+    --ring: 194 100% 50%;
     
-    /* Modern gradients */
-    --gradient-ocean: linear-gradient(135deg, hsl(260 85% 35%) 0%, hsl(15 85% 60%) 100%);
-    --gradient-wave: linear-gradient(180deg, hsl(15 85% 60% / 0.1) 0%, hsl(260 85% 35% / 0.05) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(260 95% 25%) 0%, hsl(260 85% 35%) 50%, hsl(15 85% 60%) 100%);
+    /* Healthcare gradients */
+    --gradient-ocean: linear-gradient(135deg, hsl(194 100% 50%) 0%, hsl(210 100% 50%) 100%);
+    --gradient-wave: linear-gradient(180deg, hsl(194 100% 81% / 0.2) 0%, hsl(194 100% 50% / 0.05) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(194 100% 50%) 0%, hsl(210 100% 50%) 100%);
     
-    /* Shadows with violet tint */
-    --shadow-soft: 0 4px 6px -1px hsl(260 25% 55% / 0.1), 0 2px 4px -1px hsl(260 25% 55% / 0.06);
-    --shadow-medical: 0 10px 25px -5px hsl(260 85% 35% / 0.15), 0 4px 6px -2px hsl(260 85% 35% / 0.05);
-    --shadow-glow: 0 0 20px hsl(260 75% 55% / 0.3);
+    /* Shadows with turquoise tint */
+    --shadow-soft: 0 4px 6px -1px hsl(194 50% 55% / 0.1), 0 2px 4px -1px hsl(194 50% 55% / 0.06);
+    --shadow-medical: 0 10px 25px -5px hsl(194 100% 50% / 0.15), 0 4px 6px -2px hsl(194 100% 50% / 0.05);
+    --shadow-glow: 0 0 20px hsl(194 100% 50% / 0.3);
     
     /* Smooth transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -65,45 +65,45 @@
   }
 
   .dark {
-    /* Dark violet tech theme */
-    --background: 260 85% 8%;
-    --foreground: 280 25% 95%;
+    /* Dark ocean tech theme */
+    --background: 207 62% 8%;
+    --foreground: 194 43% 95%;
     
-    --primary: 260 75% 65%;
-    --primary-foreground: 260 85% 8%;
-    --primary-light: 260 65% 75%;
-    --primary-dark: 260 85% 45%;
+    --primary: 194 100% 70%;
+    --primary-foreground: 207 62% 8%;
+    --primary-light: 194 100% 81%;
+    --primary-dark: 210 100% 60%;
     
-    --accent: 15 75% 70%;
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 15 65% 80%;
-    --accent-muted: 15 25% 20%;
+    --secondary: 191 100% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --accent: 194 100% 81%;
+    --accent-foreground: 207 62% 15%;
+    --accent-light: 194 100% 90%;
+    --accent-muted: 194 50% 20%;
     
-    --secondary: 260 25% 12%;
-    --secondary-foreground: 280 25% 95%;
-    --muted: 265 15% 14%;
-    --muted-foreground: 260 15% 70%;
+    --muted: 207 48% 12%;
+    --muted-foreground: 194 30% 70%;
     
-    --card: 260 25% 10%;
-    --card-foreground: 280 25% 95%;
-    --popover: 260 25% 10%;
-    --popover-foreground: 280 25% 95%;
+    --card: 207 48% 10%;
+    --card-foreground: 194 43% 95%;
+    --popover: 207 48% 10%;
+    --popover-foreground: 194 43% 95%;
     
     --medical-success: 140 65% 55%;
     --medical-warning: 35 75% 70%;
     --medical-error: 0 65% 70%;
     
-    --border: 260 15% 20%;
-    --input: 260 15% 16%;
-    --ring: 260 75% 65%;
+    --border: 207 30% 20%;
+    --input: 207 40% 16%;
+    --ring: 194 100% 70%;
     
-    --gradient-ocean: linear-gradient(135deg, hsl(260 85% 8%) 0%, hsl(15 75% 70%) 100%);
-    --gradient-wave: linear-gradient(180deg, hsl(15 75% 70% / 0.2) 0%, hsl(260 85% 8% / 0.1) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(260 85% 8%) 0%, hsl(260 75% 25%) 50%, hsl(15 75% 70%) 100%);
+    --gradient-ocean: linear-gradient(135deg, hsl(194 100% 30%) 0%, hsl(210 100% 40%) 100%);
+    --gradient-wave: linear-gradient(180deg, hsl(194 100% 70% / 0.2) 0%, hsl(207 62% 8% / 0.1) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(194 100% 30%) 0%, hsl(210 100% 40%) 100%);
     
-    --shadow-soft: 0 4px 6px -1px hsl(260 85% 8% / 0.3), 0 2px 4px -1px hsl(260 85% 8% / 0.2);
-    --shadow-medical: 0 10px 25px -5px hsl(260 85% 8% / 0.4), 0 4px 6px -2px hsl(260 85% 8% / 0.2);
-    --shadow-glow: 0 0 20px hsl(260 75% 65% / 0.4);
+    --shadow-soft: 0 4px 6px -1px hsl(207 62% 8% / 0.3), 0 2px 4px -1px hsl(207 62% 8% / 0.2);
+    --shadow-medical: 0 10px 25px -5px hsl(194 100% 30% / 0.4), 0 4px 6px -2px hsl(194 100% 30% / 0.2);
+    --shadow-glow: 0 0 20px hsl(194 100% 70% / 0.4);
     
     --destructive: 0 65% 70%;
     --destructive-foreground: 260 85% 8%;
