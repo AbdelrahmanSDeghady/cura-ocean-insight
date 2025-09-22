@@ -19,7 +19,7 @@ const Team = () => {
       description: "AI engineer specializing in medical data pipelines and machine learning, ensuring reliable AI-driven suggestions for clinical decision support systems.",
       image: mohamedPhoto,
       linkedin: "https://www.linkedin.com/in/mohamed-gad-970a74280",
-      email: "mohamed@icura.com",
+      email: "mohamed.ahmed04965@gmail.com",
     },
   ];
 
