@@ -20,14 +20,17 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-secondary/30">
+    <section id="about" className="py-24 bg-background">
       <div className="container mx-auto px-4 lg:px-6">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto text-center">
           {/* Section Header */}
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+          <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary mb-3">
+            About Icura
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
             Revolutionizing Clinical Decision Support
           </h2>
-          <p className="text-lg text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed">
             Icura leverages advanced AI to analyze complex patient data, providing healthcare 
             professionals with intelligent insights that support better clinical outcomes. Our 
             platform transforms how medical decisions are made, ensuring accuracy, efficiency, 
@@ -41,13 +44,13 @@ const About = () => {
                 key={index}
                 className="medical-card group text-center"
               >
-                <div className="w-16 h-16 mx-auto mb-4 bg-accent/10 rounded-full flex items-center justify-center group-hover:bg-accent/20 transition-all duration-300">
-                  <feature.icon className="h-8 w-8 text-accent" />
+                <div className="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-primary/10 to-primary-dark/10 rounded-2xl flex items-center justify-center group-hover:from-primary/20 group-hover:to-primary-dark/20 transition-all duration-300">
+                  <feature.icon className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-3">
+                <h3 className="text-xl font-bold text-foreground mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed text-sm">
                   {feature.description}
                 </p>
               </div>

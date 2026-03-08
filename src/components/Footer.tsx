@@ -5,64 +5,48 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-primary-foreground py-12">
+    <footer className="bg-secondary text-secondary-foreground py-12">
       <div className="container mx-auto px-4 lg:px-6">
         <div className="grid md:grid-cols-3 gap-8 items-center">
-          {/* Logo and Description */}
+          {/* Logo */}
           <div className="text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start space-x-3 mb-4">
+            <div className="flex items-center justify-center md:justify-start mb-4">
               <img src={icuraLogo} alt="Icura" className="h-8 w-auto filter brightness-0 invert" />
             </div>
-            <p className="text-primary-foreground/80 text-sm">
+            <p className="text-secondary-foreground/70 text-sm">
               AI-powered clinical decision support for healthcare professionals
             </p>
           </div>
 
-          {/* Navigation Links */}
+          {/* Links */}
           <div className="text-center">
-            <h3 className="font-semibold mb-4">Quick Links</h3>
+            <h3 className="font-semibold mb-4 text-sm tracking-wide uppercase">Quick Links</h3>
             <nav className="space-y-2">
-              <a href="#about" className="block text-primary-foreground/80 hover:text-accent-light transition-colors text-sm">
-                About
-              </a>
-              <a href="#features" className="block text-primary-foreground/80 hover:text-accent-light transition-colors text-sm">
-                Features
-              </a>
-              <a href="#team" className="block text-primary-foreground/80 hover:text-accent-light transition-colors text-sm">
-                Team
-              </a>
-              <a href="#contact" className="block text-primary-foreground/80 hover:text-accent-light transition-colors text-sm">
-                Contact
-              </a>
+              {["about", "features", "products", "team", "contact"].map((link) => (
+                <a key={link} href={`#${link}`} className="block text-secondary-foreground/70 hover:text-white transition-colors text-sm capitalize">
+                  {link}
+                </a>
+              ))}
             </nav>
           </div>
 
-          {/* Contact and Social */}
+          {/* Contact */}
           <div className="text-center md:text-right">
-            <h3 className="font-semibold mb-4">Connect</h3>
+            <h3 className="font-semibold mb-4 text-sm tracking-wide uppercase">Connect</h3>
             <div className="flex justify-center md:justify-end space-x-4 mb-4">
-              <a
-                href="mailto:ai@icura.net"
-                className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors group"
-              >
-                <Mail className="h-5 w-5 text-primary-foreground group-hover:text-accent-light transition-colors" />
+              <a href="mailto:ai@icura.net" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                <Mail className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="w-10 h-10 bg-primary-foreground/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors group"
-              >
-                <Linkedin className="h-5 w-5 text-primary-foreground group-hover:text-accent-light transition-colors" />
+              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                <Linkedin className="h-5 w-5" />
               </a>
             </div>
-            <p className="text-primary-foreground/60 text-xs">
-              ai@icura.net
-            </p>
+            <p className="text-secondary-foreground/50 text-xs">ai@icura.net</p>
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center">
-          <p className="text-primary-foreground/60 text-sm">
+        <div className="border-t border-white/10 mt-8 pt-8 text-center">
+          <p className="text-secondary-foreground/50 text-sm">
             © {currentYear} Icura. All rights reserved. | HIPAA Compliant Clinical AI Platform
           </p>
         </div>
