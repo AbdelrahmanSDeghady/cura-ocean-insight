@@ -3,8 +3,15 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, ArrowRight } from "lucide-react";
+import { Mail, Linkedin, ArrowRight, Sparkles, Users, Headphones, BadgePercent } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+
+const benefits = [
+  { icon: Sparkles, text: "Be among the first to test cutting-edge AI clinical tools" },
+  { icon: Users, text: "Provide feedback that shapes the final product" },
+  { icon: BadgePercent, text: "Special pricing for early adopters" },
+  { icon: Headphones, text: "Priority support and training" },
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -34,8 +41,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 lg:py-36 bg-card">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="contact" className="py-28 lg:py-36 bg-card relative overflow-hidden">
+      {/* Decorative */}
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
@@ -43,12 +53,12 @@ const Contact = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="mb-16"
+            className="text-center mb-16"
           >
             <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
               Get Started
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl mx-auto">
               Ready to transform your clinical practice?
             </h2>
           </motion.div>
@@ -60,7 +70,7 @@ const Contact = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-3 p-8 rounded-2xl bg-background border border-border"
+              className="lg:col-span-3 p-8 rounded-3xl bg-background border border-border shadow-sm"
             >
               <h3 className="text-xl font-serif text-foreground mb-6">
                 Request Early Access
@@ -79,7 +89,7 @@ const Contact = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       placeholder="Dr. John Doe"
-                      className="bg-muted border-border"
+                      className="bg-muted border-border rounded-xl"
                     />
                   </div>
                   <div>
@@ -94,7 +104,7 @@ const Contact = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="john@hospital.com"
-                      className="bg-muted border-border"
+                      className="bg-muted border-border rounded-xl"
                     />
                   </div>
                 </div>
@@ -109,7 +119,7 @@ const Contact = () => {
                     value={formData.organization}
                     onChange={handleInputChange}
                     placeholder="Hospital / Clinic Name"
-                    className="bg-muted border-border"
+                    className="bg-muted border-border rounded-xl"
                   />
                 </div>
                 <div>
@@ -123,7 +133,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     placeholder="Tell us about your clinical needs..."
-                    className="bg-muted border-border"
+                    className="bg-muted border-border rounded-xl"
                   />
                 </div>
                 <Button
@@ -145,45 +155,46 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="lg:col-span-2 space-y-8"
             >
-              <div className="p-7 rounded-2xl bg-background border border-border">
+              <div className="p-7 rounded-3xl bg-background border border-border">
+                <h3 className="text-lg font-serif text-foreground mb-5">
+                  Why Early Access?
+                </h3>
+                <ul className="space-y-4">
+                  {benefits.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                      <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <item.icon className="h-4 w-4 text-primary" />
+                      </div>
+                      {item.text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="p-7 rounded-3xl bg-background border border-border">
                 <h3 className="text-lg font-serif text-foreground mb-5">
                   Connect With Us
                 </h3>
                 <div className="space-y-4">
                   <a
                     href="mailto:ai@icura.net"
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="flex items-center text-muted-foreground hover:text-primary transition-colors text-sm group"
                   >
-                    <Mail className="h-4 w-4 mr-3 text-primary/60" />
+                    <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+                      <Mail className="h-4 w-4 text-primary" />
+                    </div>
                     ai@icura.net
                   </a>
                   <a
                     href="#"
-                    className="flex items-center text-muted-foreground hover:text-primary transition-colors text-sm"
+                    className="flex items-center text-muted-foreground hover:text-primary transition-colors text-sm group"
                   >
-                    <Linkedin className="h-4 w-4 mr-3 text-primary/60" />
+                    <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors">
+                      <Linkedin className="h-4 w-4 text-primary" />
+                    </div>
                     Follow us on LinkedIn
                   </a>
                 </div>
-              </div>
-
-              <div className="p-7 rounded-2xl bg-background border border-border">
-                <h3 className="text-lg font-serif text-foreground mb-5">
-                  Why Early Access?
-                </h3>
-                <ul className="space-y-3">
-                  {[
-                    "Be among the first to test cutting-edge AI clinical tools",
-                    "Provide feedback that shapes the final product",
-                    "Special pricing for early adopters",
-                    "Priority support and training",
-                  ].map((item, i) => (
-                    <li key={i} className="flex items-start text-muted-foreground text-sm">
-                      <div className="w-1.5 h-1.5 bg-primary/50 rounded-full mt-1.5 mr-3 flex-shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </motion.div>
           </div>

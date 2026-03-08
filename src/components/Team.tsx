@@ -26,8 +26,11 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <section id="team" className="py-28 lg:py-36 bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="team" className="py-28 lg:py-36 bg-background relative overflow-hidden">
+      {/* Decorative */}
+      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
+
+      <div className="container mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
@@ -35,32 +38,33 @@ const Team = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="mb-20"
+            className="text-center mb-20"
           >
             <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
               Our People
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl mx-auto">
               Meet the team behind Icura.
             </h2>
           </motion.div>
 
           {/* Team cards */}
-          <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-10 max-w-3xl mx-auto">
             {teamMembers.map((member, i) => (
               <motion.div
                 key={member.name}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="text-center group"
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className="group p-8 rounded-3xl bg-card border border-border hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 text-center"
               >
-                <div className="mb-6">
+                <div className="relative mb-6 inline-block">
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-28 h-28 rounded-full object-cover mx-auto border-2 border-border group-hover:border-primary/30 transition-colors duration-300"
+                    className="relative w-32 h-32 rounded-full object-cover mx-auto border-3 border-border group-hover:border-primary/30 transition-colors duration-300"
                   />
                 </div>
                 <h3 className="text-xl font-serif text-foreground mb-1">
@@ -75,7 +79,7 @@ const Team = () => {
                 <div className="flex justify-center gap-3">
                   <a
                     href={`mailto:${member.email}`}
-                    className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
+                    className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:scale-110 transition-all"
                     aria-label={`Email ${member.name}`}
                   >
                     <Mail className="h-4 w-4 text-muted-foreground" />
@@ -85,7 +89,7 @@ const Team = () => {
                       href={member.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
+                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:scale-110 transition-all"
                       aria-label={`${member.name}'s website`}
                     >
                       <Globe className="h-4 w-4 text-muted-foreground" />
@@ -96,7 +100,7 @@ const Team = () => {
                       href={member.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 transition-colors"
+                      className="w-10 h-10 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:scale-110 transition-all"
                       aria-label={`${member.name}'s LinkedIn`}
                     >
                       <Linkedin className="h-4 w-4 text-muted-foreground" />

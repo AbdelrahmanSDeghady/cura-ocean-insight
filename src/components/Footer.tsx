@@ -13,7 +13,7 @@ const Footer = () => {
             <img
               src={icuraLogo}
               alt="Icura"
-              className="h-8 w-auto mb-4 filter brightness-0 invert opacity-80"
+              className="h-10 w-auto mb-4 filter brightness-0 invert opacity-90"
             />
             <p className="text-background/50 text-sm leading-relaxed">
               AI-powered clinical decision support for healthcare professionals.
@@ -46,13 +46,13 @@ const Footer = () => {
             <div className="flex gap-3 mb-4">
               <a
                 href="mailto:ai@icura.net"
-                className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
+                className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
               >
                 <Mail className="h-4 w-4" />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
+                className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
