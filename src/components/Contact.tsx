@@ -41,11 +41,11 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-28 lg:py-36 bg-card relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-20 md:py-28 lg:py-36 bg-card relative overflow-hidden">
       {/* Decorative */}
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 right-0 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 translate-x-1/2" />
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
