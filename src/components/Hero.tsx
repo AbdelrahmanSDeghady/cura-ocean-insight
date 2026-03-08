@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroIllustration from "@/assets/hero-illustration.png";
+import HeroAnimation from "@/components/HeroAnimation";
 import icuraLogoFull from "@/assets/icura-logo-full.png";
 
 const Hero = () => {
