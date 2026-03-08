@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Logo */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start mb-4">
-              <img src={icuraLogo} alt="Icura" className="h-8 w-auto filter brightness-0 invert" />
+              <img src={icuraLogo} alt="Icura" className="h-8 w-auto filter brightness-0 invert opacity-90" />
             </div>
             <p className="text-secondary-foreground/70 text-sm">
               AI-powered clinical decision support for healthcare professionals

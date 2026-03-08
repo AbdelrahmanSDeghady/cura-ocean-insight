@@ -38,7 +38,7 @@ const Hero = () => {
             <img 
               src={icuraLogo} 
               alt="Icura" 
-              className="w-full max-w-xs md:max-w-sm lg:max-w-md h-auto opacity-95 filter drop-shadow-2xl"
+              className="w-full max-w-xs md:max-w-sm lg:max-w-md h-auto opacity-95 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]"
             />
           </div>
 
