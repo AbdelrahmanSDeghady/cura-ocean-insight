@@ -71,17 +71,26 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Hero wave illustration */}
+      {/* Hero wave illustration — full-width with floating animation */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full max-w-6xl mx-auto px-6 mt-4"
+        className="relative z-10 w-full mt-4"
       >
-        <img
+        <motion.img
           src={heroIllustration}
           alt="Healthcare AI visualization"
-          className="w-full h-auto"
+          className="w-full h-auto object-cover"
+          animate={{
+            y: [0, -12, 0],
+            scale: [1, 1.01, 1],
+          }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
         />
       </motion.div>
     </section>
