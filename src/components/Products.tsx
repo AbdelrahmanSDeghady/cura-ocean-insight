@@ -219,7 +219,53 @@ const Products = () => {
           </AnimatePresence>
         </motion.div>
 
-        {/* Ecosystem heading */}
+        {/* And more! section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto mb-24"
+        >
+          <h3 className="text-2xl md:text-3xl font-serif text-foreground text-center mb-10">
+            And more!
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              { icon: Wind, name: "Bronchoscopy Portal", desc: "Pulmonary procedures & interventions" },
+              { icon: Scissors, name: "Surgery Portal", desc: "Scheduling, procedures & operative notes" },
+              { icon: Building2, name: "Hospital Admin", desc: "Departments, wards & staff management" },
+              { icon: FlaskConical, name: "Lab Center", desc: "Laboratory testing & results management" },
+              { icon: Users, name: "Nursing Station", desc: "Patient care, medication & nursing tasks" },
+              { icon: HeartPulse, name: "Cath Lab", desc: "Cardiac catheterization & interventional procedures" },
+              { icon: Droplets, name: "Blood Bank", desc: "Donations, inventory & transfusion tracking" },
+              { icon: Microscope, name: "Pathology Lab", desc: "Surgical specimens & histopathology reports" },
+              { icon: ScanLine, name: "Imaging Center", desc: "Radiology workflows & DICOM viewer" },
+              { icon: UserCheck, name: "Clinic Assistant", desc: "Queue management & patient check-in" },
+              { icon: Pill, name: "Drug Authority", desc: "Regulatory oversight & pharmacovigilance" },
+              { icon: Link, name: "Pharma Portal", desc: "Drug management & prescription analytics" },
+              { icon: Settings, name: "System Admin", desc: "Full system control & user management" },
+              { icon: Building, name: "Polyclinic Portal", desc: "Manage clinics, doctors & performance" },
+              { icon: Database, name: "Research Hub", desc: "Clinical trials & research data access" },
+            ].map((portal, i) => (
+              <motion.div
+                key={portal.name}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                className="group p-5 rounded-xl bg-background border border-border hover:border-primary/20 hover:shadow-sm transition-all duration-300 text-center"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/15 transition-colors">
+                  <portal.icon className="h-5 w-5 text-primary" />
+                </div>
+                <h4 className="text-sm font-semibold text-foreground mb-1">{portal.name}</h4>
+                <p className="text-xs text-muted-foreground leading-relaxed">{portal.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
