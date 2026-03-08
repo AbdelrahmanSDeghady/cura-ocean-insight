@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroIllustration from "@/assets/hero-illustration.png";
+import HeroAnimation from "@/components/HeroAnimation";
 import icuraLogoFull from "@/assets/icura-logo-full.png";
 
 const Hero = () => {
@@ -71,27 +71,14 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Hero wave illustration — full-width with floating animation */}
+      {/* Animated hero illustration */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 w-full mt-4"
       >
-        <motion.img
-          src={heroIllustration}
-          alt="Healthcare AI visualization"
-          className="w-full h-auto object-cover"
-          animate={{
-            y: [0, -12, 0],
-            scale: [1, 1.01, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        />
+        <HeroAnimation />
       </motion.div>
     </section>
   );
