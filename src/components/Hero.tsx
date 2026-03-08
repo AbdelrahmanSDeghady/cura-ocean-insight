@@ -1,37 +1,28 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import heroWaves from "@/assets/hero-waves.png";
+import heroIllustration from "@/assets/hero-illustration.png";
 import icuraLogoFull from "@/assets/icura-logo-full.png";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-[100svh] flex flex-col bg-background overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center bg-background overflow-hidden">
       {/* Floating teal gradient orbs */}
-      <motion.div
-        animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-20 left-10 w-48 sm:w-72 h-48 sm:h-72 bg-primary/10 rounded-full blur-3xl"
-      />
-      <motion.div
-        animate={{ x: [0, -15, 0], y: [0, 20, 0] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/3 right-5 w-64 sm:w-96 h-64 sm:h-96 bg-primary/5 rounded-full blur-3xl"
-      />
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute bottom-40 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
 
-      {/* Content */}
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 sm:pt-32 pb-4">
+      <div className="relative z-10 container mx-auto px-6 lg:px-8 text-center pt-32 pb-8">
         {/* Full logo with tagline */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-6 sm:mb-10"
+          className="mb-10"
         >
           <img
             src={icuraLogoFull}
             alt="Icura - Care Through Technology"
-            className="h-16 sm:h-20 md:h-28 lg:h-36 w-auto mx-auto"
+            className="h-20 md:h-28 lg:h-36 w-auto mx-auto"
           />
         </motion.div>
 
@@ -41,7 +32,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif text-foreground leading-[1.1] tracking-tight mb-4 sm:mb-6 px-2">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif text-foreground leading-[1.1] tracking-tight mb-6">
             Smarter clinical decisions.{" "}
             <span className="italic text-primary">Built for real care.</span>
           </h1>
@@ -50,7 +41,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-2"
+            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10"
           >
             Icura analyzes patient data, symptoms, and labs to provide evidence-based
             suggestions that enhance clinical decision-making.
@@ -60,11 +51,11 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 sm:px-0"
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button
               onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-primary text-primary-foreground hover:bg-primary-dark rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium group"
+              className="bg-primary text-primary-foreground hover:bg-primary-dark rounded-full px-8 py-6 text-base font-medium group"
             >
               Get Early Access
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -72,7 +63,7 @@ const Hero = () => {
             <Button
               variant="outline"
               onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
-              className="rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium border-border hover:bg-muted"
+              className="rounded-full px-8 py-6 text-base font-medium border-border hover:bg-muted"
             >
               Learn More
             </Button>
@@ -80,25 +71,18 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Full-width animated wave — pinned to bottom */}
+      {/* Hero wave illustration */}
       <motion.div
-        initial={{ opacity: 0, y: 80 }}
+        initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full mt-auto"
+        transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        className="relative z-10 w-full max-w-6xl mx-auto px-6 mt-4"
       >
-        {/* Gentle floating animation on the wave */}
-        <motion.div
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <img
-            src={heroWaves}
-            alt=""
-            aria-hidden="true"
-            className="w-full h-auto block object-cover min-h-[120px] sm:min-h-[180px] md:min-h-[250px] lg:min-h-[350px]"
-          />
-        </motion.div>
+        <img
+          src={heroIllustration}
+          alt="Healthcare AI visualization"
+          className="w-full h-auto"
+        />
       </motion.div>
     </section>
   );
