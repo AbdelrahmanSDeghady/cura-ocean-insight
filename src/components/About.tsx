@@ -1,59 +1,78 @@
-import { Target, Zap, Lock } from "lucide-react";
+import { motion } from "framer-motion";
+
+const problems = [
+  {
+    label: "Meaning",
+    title: "Fragmented Clinical Data",
+    description:
+      "Clinical information is captured across clinics, hospitals, and systems — with no reliable way to follow the patient over time. Each encounter stands alone.",
+  },
+  {
+    label: "Insight",
+    title: "Lost Clinical Context",
+    description:
+      "Even when records are digitized, they rarely grow into understanding. History remains scattered instead of cumulative, and insight fades between encounters.",
+  },
+  {
+    label: "Impact",
+    title: "Decisions Without Intelligence",
+    description:
+      "When clinical data isn't structured and continuous, healthcare systems struggle to retain knowledge. Improvement depends on individual effort rather than shared learning.",
+  },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, delay: i * 0.15, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
 
 const About = () => {
-  const features = [
-    {
-      icon: Target,
-      title: "Clinical Accuracy",
-      description: "Evidence-based suggestions backed by medical research and clinical guidelines",
-    },
-    {
-      icon: Zap,
-      title: "Workflow Efficiency", 
-      description: "Seamlessly integrates into existing workflows to enhance productivity",
-    },
-    {
-      icon: Lock,
-      title: "Secure & Compliant",
-      description: "HIPAA-compliant platform ensuring patient data privacy and security",
-    },
-  ];
-
   return (
-    <section id="about" className="py-24 bg-background">
-      <div className="container mx-auto px-4 lg:px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          {/* Section Header */}
-          <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary mb-3">
-            About Icura
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Revolutionizing Clinical Decision Support
-          </h2>
-          <p className="text-lg text-muted-foreground mb-16 max-w-3xl mx-auto leading-relaxed">
-            Icura leverages advanced AI to analyze complex patient data, providing healthcare 
-            professionals with intelligent insights that support better clinical outcomes. Our 
-            platform transforms how medical decisions are made, ensuring accuracy, efficiency, 
-            and confidence in every diagnosis.
-          </p>
+    <section id="about" className="py-28 lg:py-36 bg-card">
+      <div className="container mx-auto px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto">
+          {/* Section intro */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mb-20"
+          >
+            <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
+              The Problem
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl">
+              Healthcare data is broken. Icura is how it starts to heal.
+            </h2>
+          </motion.div>
 
-          {/* Feature Cards */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="medical-card group text-center"
+          {/* Problem cards */}
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {problems.map((problem, i) => (
+              <motion.div
+                key={problem.title}
+                custom={i}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-80px" }}
+                variants={fadeUp}
+                className="group"
               >
-                <div className="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-primary/10 to-primary-dark/10 rounded-2xl flex items-center justify-center group-hover:from-primary/20 group-hover:to-primary-dark/20 transition-all duration-300">
-                  <feature.icon className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground mb-3">
-                  {feature.title}
+                <span className="text-xs font-semibold tracking-widest uppercase text-primary/70 mb-3 block">
+                  {problem.label}
+                </span>
+                <h3 className="text-xl font-serif text-foreground mb-4 leading-snug">
+                  {problem.title}
                 </h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {feature.description}
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {problem.description}
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

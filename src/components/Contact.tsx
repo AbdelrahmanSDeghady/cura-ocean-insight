@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Linkedin, Send } from "lucide-react";
+import { Mail, Linkedin, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -17,13 +18,13 @@ const Contact = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     toast({
       title: "Thank you for your interest!",
       description: "We'll be in touch soon to discuss early access to Icura.",
@@ -33,31 +34,36 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-background relative">
-      {/* Subtle top gradient */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-
-      <div className="container mx-auto px-4 lg:px-6">
+    <section id="contact" className="py-28 lg:py-36 bg-card">
+      <div className="container mx-auto px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary mb-3">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="mb-16"
+          >
+            <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
               Get Started
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Ready to Transform Your Clinical Practice?
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Join the early access program and be among the first to experience 
-              AI-powered clinical decision support
             </p>
-          </div>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl">
+              Ready to transform your clinical practice?
+            </h2>
+          </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="medical-card">
-              <h3 className="text-2xl font-bold text-foreground mb-6">
-                Get Early Access
+          <div className="grid lg:grid-cols-5 gap-12">
+            {/* Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-3 p-8 rounded-2xl bg-background border border-border"
+            >
+              <h3 className="text-xl font-serif text-foreground mb-6">
+                Request Early Access
               </h3>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -65,74 +71,121 @@ const Contact = () => {
                     <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                       Full Name *
                     </label>
-                    <Input id="name" name="name" type="text" required value={formData.name} onChange={handleInputChange} placeholder="Dr. John Doe" />
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      placeholder="Dr. John Doe"
+                      className="bg-muted border-border"
+                    />
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                       Email Address *
                     </label>
-                    <Input id="email" name="email" type="email" required value={formData.email} onChange={handleInputChange} placeholder="john.doe@hospital.com" />
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="john@hospital.com"
+                      className="bg-muted border-border"
+                    />
                   </div>
                 </div>
-                
                 <div>
                   <label htmlFor="organization" className="block text-sm font-medium text-foreground mb-2">
                     Organization
                   </label>
-                  <Input id="organization" name="organization" type="text" value={formData.organization} onChange={handleInputChange} placeholder="Hospital / Clinic Name" />
+                  <Input
+                    id="organization"
+                    name="organization"
+                    type="text"
+                    value={formData.organization}
+                    onChange={handleInputChange}
+                    placeholder="Hospital / Clinic Name"
+                    className="bg-muted border-border"
+                  />
                 </div>
-
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
                     Message
                   </label>
-                  <Textarea id="message" name="message" rows={4} value={formData.message} onChange={handleInputChange} placeholder="Tell us about your clinical decision support needs..." />
+                  <Textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell us about your clinical needs..."
+                    className="bg-muted border-border"
+                  />
                 </div>
-
-                <Button type="submit" variant="hero" size="lg" disabled={isSubmitting} className="w-full group">
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary-dark rounded-full py-6 text-sm font-medium group"
+                >
                   {isSubmitting ? "Submitting..." : "Request Early Access"}
-                  <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </Button>
               </form>
-            </div>
+            </motion.div>
 
-            {/* Contact Info */}
-            <div className="space-y-8">
-              <div className="medical-card">
-                <h3 className="text-xl font-bold text-foreground mb-4">
+            {/* Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="lg:col-span-2 space-y-8"
+            >
+              <div className="p-7 rounded-2xl bg-background border border-border">
+                <h3 className="text-lg font-serif text-foreground mb-5">
                   Connect With Us
                 </h3>
                 <div className="space-y-4">
-                  <a href="mailto:ai@icura.net" className="flex items-center group hover:text-primary transition-colors">
-                    <Mail className="h-5 w-5 mr-3 text-primary" />
-                    <span>ai@icura.net</span>
+                  <a
+                    href="mailto:ai@icura.net"
+                    className="flex items-center text-muted-foreground hover:text-primary transition-colors text-sm"
+                  >
+                    <Mail className="h-4 w-4 mr-3 text-primary/60" />
+                    ai@icura.net
                   </a>
-                  <a href="#" className="flex items-center group hover:text-primary transition-colors">
-                    <Linkedin className="h-5 w-5 mr-3 text-primary" />
-                    <span>Follow us on LinkedIn</span>
+                  <a
+                    href="#"
+                    className="flex items-center text-muted-foreground hover:text-primary transition-colors text-sm"
+                  >
+                    <Linkedin className="h-4 w-4 mr-3 text-primary/60" />
+                    Follow us on LinkedIn
                   </a>
                 </div>
               </div>
 
-              <div className="medical-card">
-                <h3 className="text-xl font-bold text-foreground mb-4">
+              <div className="p-7 rounded-2xl bg-background border border-border">
+                <h3 className="text-lg font-serif text-foreground mb-5">
                   Why Early Access?
                 </h3>
-                <ul className="space-y-3 text-muted-foreground text-sm">
+                <ul className="space-y-3">
                   {[
                     "Be among the first to test cutting-edge AI clinical tools",
                     "Provide feedback that shapes the final product",
                     "Special pricing for early adopters",
                     "Priority support and training",
                   ].map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-1.5 mr-3 flex-shrink-0" />
-                      <span>{item}</span>
+                    <li key={i} className="flex items-start text-muted-foreground text-sm">
+                      <div className="w-1.5 h-1.5 bg-primary/50 rounded-full mt-1.5 mr-3 flex-shrink-0" />
+                      {item}
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

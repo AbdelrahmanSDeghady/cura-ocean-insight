@@ -1,87 +1,101 @@
-import { 
-  Stethoscope, 
-  Shield, 
-  BarChart3, 
-  Clock, 
-  Database, 
-  CheckCircle 
+import { motion } from "framer-motion";
+import {
+  Stethoscope,
+  Shield,
+  BarChart3,
+  Clock,
+  Database,
+  CheckCircle,
 } from "lucide-react";
 
+const features = [
+  {
+    icon: Stethoscope,
+    title: "Evidence-Based Suggestions",
+    description: "AI-powered recommendations based on latest medical research and clinical guidelines.",
+  },
+  {
+    icon: Shield,
+    title: "Secure Data Handling",
+    description: "Enterprise-grade security with HIPAA compliance for patient data protection.",
+  },
+  {
+    icon: BarChart3,
+    title: "Real-Time AI Insights",
+    description: "Instant analysis of patient data with dynamic visualization and trends.",
+  },
+  {
+    icon: Clock,
+    title: "Seamless Workflow",
+    description: "Integrates smoothly with existing EMR systems and clinical workflows.",
+  },
+  {
+    icon: Database,
+    title: "Comprehensive Analysis",
+    description: "Processes symptoms, lab results, and patient history for holistic insights.",
+  },
+  {
+    icon: CheckCircle,
+    title: "Clinical Validation",
+    description: "All suggestions reviewed and validated by medical professionals.",
+  },
+];
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+  }),
+};
+
 const Features = () => {
-  const features = [
-    {
-      icon: Stethoscope,
-      title: "Evidence-Based Suggestions",
-      description: "AI-powered recommendations based on latest medical research and clinical guidelines",
-    },
-    {
-      icon: Shield,
-      title: "Secure Data Handling",
-      description: "Enterprise-grade security with HIPAA compliance for patient data protection",
-    },
-    {
-      icon: BarChart3,
-      title: "Real-Time AI Insights",
-      description: "Instant analysis of patient data with dynamic visualization and trends",
-    },
-    {
-      icon: Clock,
-      title: "Seamless Workflow",
-      description: "Integrates smoothly with existing EMR systems and clinical workflows",
-    },
-    {
-      icon: Database,
-      title: "Comprehensive Analysis",
-      description: "Processes symptoms, lab results, and patient history for holistic insights",
-    },
-    {
-      icon: CheckCircle,
-      title: "Clinical Validation",
-      description: "All suggestions reviewed and validated by medical professionals",
-    },
-  ];
-
   return (
-    <section id="features" className="py-24 bg-accent-light/50">
-      <div className="container mx-auto px-4 lg:px-6">
-        {/* Section Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary mb-3">
-            Capabilities
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Powerful Features for Modern Healthcare
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Experience the next generation of clinical decision support with advanced AI 
-            capabilities designed specifically for healthcare professionals
+    <section id="features" className="py-28 lg:py-36 bg-background">
+      <div className="container mx-auto px-6 lg:px-8">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="max-w-5xl mx-auto mb-20"
+        >
+          <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
+            The Response
           </p>
-        </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl">
+            A different way to think about clinical intelligence.
+          </h2>
+          <p className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed">
+            Instead of treating each visit as an isolated event, Icura is built to create
+            continuity — supporting care today and enabling learning tomorrow.
+          </p>
+        </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {features.map((feature, index) => (
-            <div
-              key={index}
-              className="medical-card group relative overflow-hidden"
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          {features.map((feature, i) => (
+            <motion.div
+              key={feature.title}
+              custom={i}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+              variants={fadeUp}
+              className="group p-7 rounded-2xl bg-card border border-border hover:border-primary/20 transition-all duration-300"
             >
-              {/* Top gradient bar */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-primary-dark rounded-t-xl opacity-50 group-hover:opacity-100 transition-opacity" />
-              
-              {/* Icon + Title */}
-              <div className="flex items-center mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-primary-dark/10 flex items-center justify-center mr-4 group-hover:from-primary/20 group-hover:to-primary-dark/20 transition-all">
-                  <feature.icon className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
-                  {feature.title}
-                </h3>
+              <div className="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center mb-5 group-hover:bg-primary/12 transition-colors">
+                <feature.icon className="h-5 w-5 text-primary" />
               </div>
-
-              <p className="text-muted-foreground leading-relaxed text-sm">
+              <h3 className="text-lg font-serif text-foreground mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 {feature.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

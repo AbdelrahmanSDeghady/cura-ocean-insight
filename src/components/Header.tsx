@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import icuraLogo from "@/assets/icura-logo.png";
 
 const Header = () => {
@@ -28,62 +29,71 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/95 backdrop-blur-md shadow-lg border-b border-border"
+          ? "bg-background/90 backdrop-blur-md border-b border-border"
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 lg:px-6">
+      <div className="container mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <img src={icuraLogo} alt="Icura" className="h-16 lg:h-20 w-auto" />
+          <img src={icuraLogo} alt="Icura" className="h-10 lg:h-12 w-auto" />
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-10">
             {navItems.map((item) => (
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground/80 hover:text-primary transition-colors font-medium text-sm tracking-wide"
+                className="text-foreground/60 hover:text-foreground transition-colors text-sm font-medium tracking-wide"
               >
                 {item.name}
               </button>
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="hidden md:flex">
-            <Button variant="ocean" size="default" onClick={() => scrollToSection("#contact")}>
+            <Button
+              onClick={() => scrollToSection("#contact")}
+              className="bg-primary text-primary-foreground hover:bg-primary-dark rounded-full px-6 text-sm font-medium"
+            >
               Get Early Access
             </Button>
           </div>
 
-          {/* Mobile Menu */}
           <button className="md:hidden p-2" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
+      </div>
 
+      <AnimatePresence>
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border">
-            <nav className="flex flex-col space-y-4 px-4 py-6">
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border"
+          >
+            <nav className="flex flex-col gap-1 px-6 py-6">
               {navItems.map((item) => (
                 <button
                   key={item.name}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-left text-foreground/80 hover:text-primary transition-colors font-medium"
+                  className="text-left text-foreground/70 hover:text-foreground transition-colors py-3 text-sm font-medium"
                 >
                   {item.name}
                 </button>
               ))}
-              <Button variant="ocean" size="default" onClick={() => scrollToSection("#contact")} className="mt-4 w-full">
+              <Button
+                onClick={() => scrollToSection("#contact")}
+                className="mt-4 bg-primary text-primary-foreground hover:bg-primary-dark rounded-full text-sm font-medium"
+              >
                 Get Early Access
               </Button>
             </nav>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </header>
   );
 };
