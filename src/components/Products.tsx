@@ -122,8 +122,8 @@ const Products = () => {
   const [activeShowcase, setActiveShowcase] = useState(0);
 
   return (
-    <section id="products" className="py-28 lg:py-36 bg-card">
-      <div className="container mx-auto px-6 lg:px-8">
+    <section id="products" className="py-16 sm:py-20 md:py-28 lg:py-36 bg-card">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
