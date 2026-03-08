@@ -12,6 +12,18 @@ import {
   Shield,
   Building2,
   Scissors,
+  Droplets,
+  Microscope,
+  ScanLine,
+  UserCheck,
+  Pill,
+  Link,
+  Settings,
+  Building,
+  Database,
+  Wind,
+  HeartPulse,
+  Users,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
