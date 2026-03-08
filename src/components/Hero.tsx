@@ -82,17 +82,23 @@ const Hero = () => {
 
       {/* Full-width animated wave — pinned to bottom */}
       <motion.div
-        initial={{ opacity: 0, y: 60 }}
+        initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full mt-auto -mb-1"
+        className="relative z-10 w-full mt-auto"
       >
-        <img
-          src={heroWaves}
-          alt=""
-          aria-hidden="true"
-          className="w-full h-auto block scale-x-105"
-        />
+        {/* Gentle floating animation on the wave */}
+        <motion.div
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <img
+            src={heroWaves}
+            alt=""
+            aria-hidden="true"
+            className="w-full h-auto block object-cover min-h-[120px] sm:min-h-[180px] md:min-h-[250px] lg:min-h-[350px]"
+          />
+        </motion.div>
       </motion.div>
     </section>
   );
