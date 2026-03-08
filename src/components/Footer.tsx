@@ -5,32 +5,32 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-foreground text-background/80 py-16">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-10 items-start">
+    <footer className="bg-foreground text-background/80 py-10 sm:py-16">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 items-start">
           {/* Logo */}
           <div>
             <img
               src={icuraLogo}
               alt="Icura"
-              className="h-10 w-auto mb-4 filter brightness-0 invert opacity-90"
+              className="h-8 sm:h-10 w-auto mb-4 filter brightness-0 invert opacity-90"
             />
-            <p className="text-background/50 text-sm leading-relaxed">
+            <p className="text-background/50 text-xs sm:text-sm leading-relaxed">
               AI-powered clinical decision support for healthcare professionals.
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-background/40 mb-5">
+            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-background/40 mb-4 sm:mb-5">
               Quick Links
             </h3>
-            <nav className="space-y-3">
+            <nav className="space-y-2 sm:space-y-3">
               {["about", "features", "products", "team", "contact"].map((link) => (
                 <a
                   key={link}
                   href={`#${link}`}
-                  className="block text-background/60 hover:text-background transition-colors text-sm capitalize"
+                  className="block text-background/60 hover:text-background transition-colors text-xs sm:text-sm capitalize"
                 >
                   {link}
                 </a>
@@ -40,29 +40,29 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-background/40 mb-5">
+            <h3 className="font-sans text-xs font-semibold tracking-widest uppercase text-background/40 mb-4 sm:mb-5">
               Connect
             </h3>
             <div className="flex gap-3 mb-4">
               <a
                 href="mailto:ai@icura.net"
-                className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
               >
                 <Mail className="h-4 w-4" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-background/10 rounded-full flex items-center justify-center hover:bg-background/20 transition-colors"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
             </div>
-            <p className="text-background/40 text-sm">ai@icura.net</p>
+            <p className="text-background/40 text-xs sm:text-sm">ai@icura.net</p>
           </div>
         </div>
 
-        <div className="border-t border-background/10 mt-12 pt-8 text-center">
-          <p className="text-background/30 text-sm">
+        <div className="border-t border-background/10 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
+          <p className="text-background/30 text-xs sm:text-sm">
             © {currentYear} Icura. All rights reserved.
           </p>
         </div>
