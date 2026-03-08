@@ -70,14 +70,13 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Hero illustration with animated overlay */}
+      {/* Animated flowing waves with floating crosses */}
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
         className="relative z-10 w-full mt-4"
       >
-        <div className="relative w-full">
 
         {/* Animated flowing waves with floating crosses */}
         <div className="relative w-full overflow-hidden -mt-1">
