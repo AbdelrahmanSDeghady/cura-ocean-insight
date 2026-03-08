@@ -149,11 +149,79 @@ const Hero = () => {
           </svg>
         </div>
 
-        {/* Animated flowing waves */}
-        <div className="w-full overflow-hidden -mt-1">
+        {/* Animated flowing waves with floating crosses */}
+        <div className="relative w-full overflow-hidden -mt-1">
+          {/* Floating crosses around the waves */}
+          {[
+            { x: "5%", y: "-10px", size: 14, delay: 0, dur: 6, drift: 30 },
+            { x: "15%", y: "20px", size: 10, delay: 1.2, dur: 5, drift: -20 },
+            { x: "25%", y: "-5px", size: 16, delay: 0.5, dur: 7, drift: 25 },
+            { x: "35%", y: "30px", size: 11, delay: 2.0, dur: 5.5, drift: -15 },
+            { x: "45%", y: "5px", size: 18, delay: 0.8, dur: 6.5, drift: 20 },
+            { x: "55%", y: "-15px", size: 12, delay: 1.5, dur: 5, drift: -25 },
+            { x: "65%", y: "25px", size: 15, delay: 0.3, dur: 7, drift: 30 },
+            { x: "75%", y: "10px", size: 10, delay: 1.8, dur: 6, drift: -20 },
+            { x: "85%", y: "-8px", size: 17, delay: 0.6, dur: 5.5, drift: 22 },
+            { x: "92%", y: "15px", size: 13, delay: 2.2, dur: 6.5, drift: -18 },
+            { x: "10%", y: "50px", size: 9, delay: 1.0, dur: 4.5, drift: 15 },
+            { x: "50%", y: "60px", size: 11, delay: 0.2, dur: 5, drift: -22 },
+            { x: "80%", y: "55px", size: 14, delay: 1.7, dur: 6, drift: 18 },
+          ].map((c, i) => (
+            <motion.div
+              key={`wc-${i}`}
+              className="absolute pointer-events-none"
+              style={{ left: c.x, top: c.y }}
+              animate={{
+                y: [0, c.drift, 0],
+                x: [0, c.drift * 0.5, 0],
+                rotate: [0, 180, 360],
+                opacity: [0.15, 0.5, 0.15],
+              }}
+              transition={{
+                duration: c.dur,
+                delay: c.delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              <svg width={c.size} height={c.size} viewBox="0 0 20 20" fill="none">
+                <line x1="10" y1="2" x2="10" y2="18" stroke="hsl(180 70% 35%)" strokeWidth="2" strokeLinecap="round" />
+                <line x1="2" y1="10" x2="18" y2="10" stroke="hsl(180 70% 35%)" strokeWidth="2" strokeLinecap="round" />
+              </svg>
+            </motion.div>
+          ))}
+
+          {/* Sparkle dots around waves */}
+          {[
+            { x: "8%", y: "40px", delay: 0, dur: 3 },
+            { x: "22%", y: "10px", delay: 0.8, dur: 2.5 },
+            { x: "38%", y: "50px", delay: 1.5, dur: 3.5 },
+            { x: "52%", y: "15px", delay: 0.4, dur: 2.8 },
+            { x: "68%", y: "45px", delay: 1.2, dur: 3.2 },
+            { x: "82%", y: "8px", delay: 0.6, dur: 2.6 },
+            { x: "95%", y: "35px", delay: 1.8, dur: 3 },
+          ].map((s, i) => (
+            <motion.div
+              key={`spark-${i}`}
+              className="absolute w-1.5 h-1.5 rounded-full pointer-events-none"
+              style={{ left: s.x, top: s.y, background: "hsl(180 70% 35%)" }}
+              animate={{
+                scale: [0, 1.5, 0],
+                opacity: [0, 0.8, 0],
+              }}
+              transition={{
+                duration: s.dur,
+                delay: s.delay,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+          ))}
+
+          {/* Wave SVG */}
           <svg
             viewBox="0 0 2880 120"
-            className="w-[200%] h-auto"
+            className="w-[200%] h-auto relative z-10"
             preserveAspectRatio="none"
             fill="none"
           >
