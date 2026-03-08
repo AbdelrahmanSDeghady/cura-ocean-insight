@@ -31,7 +31,7 @@ const Header = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border shadow-sm"
           : "bg-transparent"
       }`}
     >
@@ -44,7 +44,7 @@ const Header = () => {
               <button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="text-foreground/60 hover:text-foreground transition-colors text-sm font-medium tracking-wide"
+                className="text-foreground/60 hover:text-foreground transition-colors text-sm font-medium tracking-wide relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary after:transition-all hover:after:w-full"
               >
                 {item.name}
               </button>
@@ -72,7 +72,7 @@ const Header = () => {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border"
+            className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border"
           >
             <nav className="flex flex-col gap-1 px-6 py-6">
               {navItems.map((item) => (

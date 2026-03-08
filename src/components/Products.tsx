@@ -8,6 +8,7 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import platformDashboard from "@/assets/platform-dashboard.png";
 
 const products = [
   {
@@ -47,15 +48,6 @@ const products = [
   },
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] as const },
-  }),
-};
-
 const Products = () => {
   return (
     <section id="products" className="py-28 lg:py-36 bg-card">
@@ -66,36 +58,50 @@ const Products = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="max-w-5xl mx-auto mb-20"
+          className="text-center mb-16"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-primary mb-4">
             Ecosystem
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-foreground leading-tight max-w-3xl mx-auto">
             The Icura Platform
           </h2>
-          <p className="mt-6 text-muted-foreground text-lg max-w-2xl leading-relaxed">
+          <p className="mt-6 text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
             A connected healthcare ecosystem that turns everyday care into continuity,
             clinical intelligence, and system-wide learning.
           </p>
         </motion.div>
 
-        {/* Products */}
+        {/* Dashboard mockup */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-5xl mx-auto mb-20 rounded-3xl overflow-hidden shadow-2xl shadow-foreground/10 border border-border"
+        >
+          <img
+            src={platformDashboard}
+            alt="Icura clinical analytics dashboard"
+            className="w-full h-auto"
+          />
+        </motion.div>
+
+        {/* Products grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto mb-16">
           {products.map((product, i) => (
             <motion.div
               key={product.name}
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              variants={fadeUp}
-              className={`group p-7 rounded-2xl bg-background border border-border hover:border-primary/20 transition-all duration-300 ${
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              className={`group p-7 rounded-2xl bg-background border border-border hover:border-primary/20 hover:shadow-md transition-all duration-300 ${
                 i >= 3 ? "lg:col-span-1" : ""
               }`}
             >
-              <div className="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center mb-5 group-hover:bg-primary/12 transition-colors">
-                <product.icon className="h-5 w-5 text-primary" />
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/15 group-hover:scale-110 transition-all duration-300">
+                <product.icon className="h-6 w-6 text-primary" />
               </div>
               <h3 className="text-lg font-serif text-foreground mb-3">
                 {product.name}
