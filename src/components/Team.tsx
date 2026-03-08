@@ -26,11 +26,10 @@ const teamMembers = [
 
 const Team = () => {
   return (
-    <section id="team" className="py-28 lg:py-36 bg-background relative overflow-hidden">
-      {/* Decorative */}
-      <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
+    <section id="team" className="py-16 sm:py-20 md:py-28 lg:py-36 bg-background relative overflow-hidden">
+      <div className="absolute top-1/2 left-0 w-48 sm:w-64 h-48 sm:h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2" />
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
