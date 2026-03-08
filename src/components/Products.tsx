@@ -152,7 +152,7 @@ const Products = () => {
           className="max-w-6xl mx-auto mb-24"
         >
           {/* Tab navigation */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 mb-6 sm:mb-8 px-2">
             {showcases.map((item, i) => (
               <button
                 key={item.id}
