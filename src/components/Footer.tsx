@@ -1,5 +1,5 @@
 import { Mail, Linkedin } from "lucide-react";
-import icuraLogo from "@/assets/icura-logo.png";
+import icuraLogo from "@/assets/icura-logo-hero.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

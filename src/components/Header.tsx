@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import icuraLogo from "@/assets/icura-logo.png";
+import icuraLogo from "@/assets/icura-logo-hero.png";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
